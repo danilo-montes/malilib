@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.Locale;
 import java.util.Set;
 import com.google.common.collect.ImmutableSet;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtIo;
@@ -19,7 +20,8 @@ public class FileUtils
 
     public static File getConfigDirectory()
     {
-        return new File(MinecraftClient.getInstance().runDirectory, "config");
+        return new File(FabricLoader.getInstance().getConfigDir().toString());
+        // return new File(MinecraftClient.getInstance().runDirectory, "config");
     }
 
     public static File getMinecraftDirectory()
